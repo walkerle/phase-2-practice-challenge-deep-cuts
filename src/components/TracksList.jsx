@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Track from './Track';
 
-function TracksList() {
+function TracksList({tracks}) {
+  const tracksList = tracks.map(track => {
+    return (
+      <Track key={track.id} {...track} />
+    )
+  })
+
   return (
     <table>
       <tbody>
@@ -20,6 +27,7 @@ function TracksList() {
           </th>
         </tr>
         {/* render a list of <Track> components here */}
+        {tracksList}
       </tbody>
     </table>
   )
